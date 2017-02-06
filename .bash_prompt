@@ -1,0 +1,35 @@
+source /etc/bash_completion.d/git-prompt
+
+PATH="./bin:$PATH"
+CDPATH="~/Workspaces:$CDPATH"
+
+branch_color ()
+{
+    if git rev-parse --git-dir >/dev/null 2>&1
+    then
+        color=""
+        if git diff --quiet 2>/dev/null >&2
+        then
+            color=`tput setaf 2`
+        else
+            color=`tput setaf 5`
+        fi
+    else
+        return 0
+    fi
+    echo -n $color
+}
+parse_git_branch() {
+    if git rev-parse --git-dir > /dev/null 2>&1; then
+        current_branch_name="$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ [\1]/')";
+
+        if [[ $(expr length + ${current_branch_name}) -gt 37 ]]
+        then
+            git branch|cut -f-4 -d- 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ [\1...]/'
+        else
+            echo "${current_branch_name}"
+        fi
+    fi
+}
+
+PS1='[\A]\[$(tput setaf 7)\]\u\[$(tput sgr0)\]:\[$(tput setaf 6)\]\W\[$(tput sgr0)\]\[$(branch_color)\]$(parse_git_branch)\[$(tput sgr0)\]$ '
