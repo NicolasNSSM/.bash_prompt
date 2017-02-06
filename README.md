@@ -1,7 +1,12 @@
 # .bash_prompt
 My custom bash prompt with git info and direct jump to Workspaces' folders
 
+----------------------------
+
+bash-completion needs to be installed
+
 Add this file to your home.
+
 Add this line to your ~/.bashrc
 ```bash
 source .bash_prompt
