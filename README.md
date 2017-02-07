@@ -17,7 +17,7 @@ reboot your console or execute :
 source ~/.bashrc
 ```
 
-* Now your console shows the branch name if in a versionned project.
+* Now your console shows the branch name if in a versionned project's folder.
 * If the branch name is too long, it truncates it.
 * If you have uncommited files, the branch name change from green to orange so you can guess your project status.
 * You can change CDPATH to make folder accessible from everywhere by just "cd" directly in, leaving it this way allows you to type a folder's name that ~/Workspaces contains from wherever you are.
