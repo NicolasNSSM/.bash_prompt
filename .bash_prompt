@@ -23,7 +23,7 @@ parse_git_branch() {
     if git rev-parse --git-dir > /dev/null 2>&1; then
         current_branch_name="$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ [\1]/')";
 
-        if [[ ${current_branch_name} != *detached* ]] &&  [[ $(expr length + ${current_branch_name}) -gt 37 ]]
+        if [[ ${current_branch_name} != *\(* ]] &&  [[ $(expr length + ${current_branch_name}) -gt 37 ]]
         then
             git branch|cut -f-4 -d- 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ [\1...]/'
         else
