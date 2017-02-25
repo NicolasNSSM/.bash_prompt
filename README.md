@@ -5,11 +5,11 @@ My custom bash prompt with git info and direct jump to Workspaces' folders
 
 bash-completion needs to be installed
 
-Add this project's .bash_prompt file to your home directory.
+Clone this projet into your home directory.
 
-Add this line to your ~/.bashrc
+Add this line to the end of your ~/.bashrc
 ```bash
-source .bash_prompt
+source ~/.bash_prompt/.bash_prompt
 ```
 
 reboot your console or execute :
