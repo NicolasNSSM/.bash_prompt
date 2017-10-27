@@ -1,3 +1,7 @@
+PLEASE DON'T USE THIS :D
+Zsh and Oh My Zsh are the way to go!
+
+
 # .bash_prompt
 My custom bash prompt with git info and direct jump to Workspaces' folders
 
